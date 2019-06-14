@@ -17,3 +17,13 @@ router.get('/mazda',function(req,res,next) {
 
 	res.render('mazda',infoMazda)
 })
+
+router.get('/seat', function(req,res,next) {
+	var infoSeat={}
+	infoSeat.pais='Barcelona, España'
+	infoSeat.sectorVentas='Comercial'
+	infoSeat.anioFundacion="9 de mayo de 1950"
+	infoSeat.logo="https://www.seat.mx/content/dam/public/header/seat-logo.png"
+
+	res.render('seat',infoSeat)
+})
