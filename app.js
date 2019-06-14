@@ -4,6 +4,9 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+var mongoose=require('mongoose')
+mongoose.connect=('mongodb://developer:PdGxBCtSpFCMj69S@cluster0-9mfls.gcp.mongodb.net/autosdb?retryWrites=true&w=majority',{useNewUrlParser:true})
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var galeriaRouter=require('./routes/galeria')
