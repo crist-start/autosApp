@@ -5,7 +5,9 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var mongoose=require('mongoose')
-mongoose.connect=('mongodb://developer:PdGxBCtSpFCMj69S@cluster0-9mfls.gcp.mongodb.net/autosdb?retryWrites=true&w=majority',{useNewUrlParser:true})
+mongoose.connect('mongodb+srv://developer:PdGxBCtSpFCMj69S@cluster0-9mfls.gcp.mongodb.net/autosdb?retryWrites=true&w=majority',{useNewUrlParser:true}).then(()=>{
+	console.log('conectado')
+})
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');

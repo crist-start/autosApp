@@ -1,12 +1,12 @@
 var express = require('express');
 var router = express.Router();
+var mongoose=require('mongoose')
+var Mazda=require('../models/autos')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Autos App' });
 });
-
-module.exports = router;
 
 router.get('/mazda',function(req,res,next) {
 	var infoMazda={}
@@ -27,3 +27,21 @@ router.get('/seat', function(req,res,next) {
 
 	res.render('seat',infoSeat)
 })
+
+router.post('/alta', function(req,res,next){
+	console.log('intentando conectar');
+	var miMazda=Mazda(
+		{nombre:req.body.nombre,
+			foto:req.body.foto
+		});
+
+	miMazda.save(function(err,data){
+		if(err){
+			console.log('error');
+		}else{
+			res.render('resultadoAlta',data);
+		}
+	});
+});
+
+module.exports = router;
